@@ -1,0 +1,97 @@
+crud operations  
+
+delete command:
+
+deleteOne() or deleteMany()
+
+example: 
+
+db.flightData.deleteOne({departureAirport: "TXL"})
+
+
+we can also delete with id: 
+[
+  {
+    _id: ObjectId("6497f9d31b64073e228b04cf"),
+    departureAirport: 'MUC',
+    arrivalAirport: 'SFO',
+    aircraft: 'Airbus A380',
+    distance: 12000,
+    intercontinential: true
+  },
+  {
+    _id: ObjectId("6497ff59bd23d14df572da07"),
+    departureAirport: 'TXL',
+    arrivalAirport: 'LHR'
+  }
+]
+flights> db.flightData.deleteOne({_id: ObjectId("6497ff59bd23d14df572da07")})
+{ acknowledged: true, deletedCount: 1 }
+flights> db.flightData.find().pretty()
+[
+  {
+    _id: ObjectId("6497f9d31b64073e228b04cf"),
+    departureAirport: 'MUC',
+    arrivalAirport: 'SFO',
+    aircraft: 'Airbus A380',
+    distance: 12000,
+    intercontinential: true
+  }
+]
+flights> 
+
+
+------------------------------updateOne()
+
+flights> db.flightData.updateOne({distance: 12000}, {$set: {marker: "delete"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+flights> db.flightData.find().pretty()
+[
+  {
+    _id: ObjectId("6497f9d31b64073e228b04cf"),
+    departureAirport: 'MUC',
+    arrivalAirport: 'SFO',
+    aircraft: 'Airbus A380',
+    distance: 12000,
+    intercontinential: true,
+    marker: 'delete'
+  }
+]
+
+
+---------------------------updateMany()
+
+flights> db.flightData.updateMany({}, {$set: {marker: "toDelete"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+flights> db.flightData.find()
+[
+  {
+    _id: ObjectId("6497f9d31b64073e228b04cf"),
+    departureAirport: 'MUC',
+    arrivalAirport: 'SFO',
+    aircraft: 'Airbus A380',
+    distance: 12000,
+    intercontinential: true,
+    marker: 'toDelete'
+  }
+]
+
+
+--------------------------------deleteMany()
+db.flightData.deleteMany({marker: "toDelete"}, )
+
+and there is nothing!!! :-)
+
+
