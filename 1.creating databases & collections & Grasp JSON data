@@ -1,0 +1,38 @@
+test> show dbs
+admin    40.00 KiB
+config  108.00 KiB
+local    40.00 KiB
+shop     72.00 KiB
+test> use flights
+switched to db flights
+flights> show dbs
+admin    40.00 KiB
+config  108.00 KiB
+local    40.00 KiB
+shop     72.00 KiB
+flights> db.flightData.insertOne({
+...         "departureAirport": "MUC",
+...         "arrivalAirport": "SFO",
+...         "aircraft": "Airbus A380",
+...         "distance": 12000,
+...         "intercontinential": true
+...     })
+{
+  acknowledged: true,
+  insertedId: ObjectId("6497f9d31b64073e228b04cf")
+}
+flights> db.lightData.find()
+
+flights> db.flightData.find()
+[
+  {
+    _id: ObjectId("6497f9d31b64073e228b04cf"),
+    departureAirport: 'MUC',
+    arrivalAirport: 'SFO',
+    aircraft: 'Airbus A380',
+    distance: 12000,
+    intercontinential: true
+  }
+]
+flights> 
+
