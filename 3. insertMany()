@@ -1,0 +1,25 @@
+-----------------------insertMany()
+
+[
+    {
+        "departureAirport": "MUC",
+        "arrivalAirport": "SFO",
+        "aircraft": "Airbus A380",
+        "distance": 12000,
+        "intercontinential": true
+    },
+    {
+        "departureAirport": "LHR",
+        "arrivalAirport": "TXL",
+        "aircraft": "Airbus A320",
+        "distance": 950,
+        "intercontinential": false
+    }
+]
+
+copy and paste this data:
+
+db.flightData.insertMany([ { "departureAirport": "MUC", "arrivalAirport": "SFO", "aircraft": "Airbus A380", "distance": 12000, "intercontinential": true }, { "departureAirport": "LHR", "arrivalAirport": "TXL", "aircraft": "Airbus A320", "distance": 950, "intercontinential": false }])
+
+
+db.flightData.find()
