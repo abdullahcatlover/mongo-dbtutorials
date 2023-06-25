@@ -1,0 +1,89 @@
+----------------------finding data------------
+
+
+db.flightData.find()
+[
+  {
+    _id: ObjectId("6498055abd23d14df572da08"),
+    departureAirport: 'MUC',
+    arrivalAirport: 'SFO',
+    aircraft: 'Airbus A380',
+    distance: 12000,
+    intercontinential: true
+  },
+  {
+    _id: ObjectId("6498055abd23d14df572da09"),
+    departureAirport: 'LHR',
+    arrivalAirport: 'TXL',
+    aircraft: 'Airbus A320',
+    distance: 950,
+    intercontinential: false
+  }
+]
+flights> db.flightData.find({intercontinential: true})
+[
+  {
+    _id: ObjectId("6498055abd23d14df572da08"),
+    departureAirport: 'MUC',
+    arrivalAirport: 'SFO',
+    aircraft: 'Airbus A380',
+    distance: 12000,
+    intercontinential: true
+  }
+]
+
+
+
+
+
+db.flightData.find({distance: 12000})
+[
+  {
+    _id: ObjectId("6498055abd23d14df572da08"),
+    departureAirport: 'MUC',
+    arrivalAirport: 'SFO',
+    aircraft: 'Airbus A380',
+    distance: 12000,
+    intercontinential: true
+  }
+]
+
+
+
+-------------------------------------------gt-------------------------
+gt means greater then
+
+
+db.flightData.find({distance: {$gt: 10000}})
+[
+  {
+    _id: ObjectId("6498055abd23d14df572da08"),
+    departureAirport: 'MUC',
+    arrivalAirport: 'SFO',
+    aircraft: 'Airbus A380',
+    distance: 12000,
+    intercontinential: true
+  }
+]
+flights> 
+
+
+
+
+
+
+
+---------------------------------findOne()-------------
+that inly gives you back one element, it is only for first matching element;
+
+
+db.flightData.findOne({distance: {$gt: 800}})
+{
+  _id: ObjectId("6498055abd23d14df572da08"),
+  departureAirport: 'MUC',
+  arrivalAirport: 'SFO',
+  aircraft: 'Airbus A380',
+  distance: 12000,
+  intercontinential: true
+}
+
