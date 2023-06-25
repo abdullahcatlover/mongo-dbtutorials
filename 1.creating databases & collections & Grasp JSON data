@@ -37,3 +37,7 @@ flights> db.flightData.find()
 ]
 flights> 
 
+
+
+adding ID mannually: 
+db.flightData.insertOne({departureAirport: "TXL", arrivalAirport: "LHR", _id: "txl-lhr11"})
